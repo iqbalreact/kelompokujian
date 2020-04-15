@@ -16,6 +16,25 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/dashboard', function () {
+    return view('pages.dashboard');
+});
+
+Route::get('/kelompok', function () {
+    return view('pages.kelompok');
+});
+
+Route::get('/kelas', function () {
+    return view('pages.kelas');
+});
+
+Route::get('/tambahkelompok', function () {
+    return view('add.tambahkk');
+});
+
+Route::get('/tambahkelas', function () {
+    return view('add.tambahkelas');
+});
 
 Auth::routes();
 
