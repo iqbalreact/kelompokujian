@@ -47,7 +47,7 @@
 
 		<div class="navbar-collapse collapse" id="navbar-second-toggle">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="{{url('/admin/dashboard')}}""><i class="icon-display4 position-left"></i> Dashboard</a></li>
+				<li class="active"><a href="{{url('/admin/')}}""><i class="icon-display4 position-left"></i> Dashboard</a></li>
 				<li><a href="{{url('/admin/kelompok')}}""><i class="icon-make-group position-left"></i> Kelompok</a></li>
 				<li><a href="{{url('/admin/kelas')}}""><i class="icon-strategy position-left"></i> Kelas</a></li>
 			</ul>

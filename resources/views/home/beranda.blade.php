@@ -12,7 +12,7 @@
 			<div class="page-title">
 				<h4>
 					{{-- <i class="icon-arrow-left52 position-left"></i> --}}
-					<span class="text-semibold">Welcome, Room Meet</span>
+					<span class="text-semibold">Welcome, KELAS TA Teknik Sipil</span>
 				</h4>
 			</div>
 		</div>

@@ -17,16 +17,11 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-
-// Route::get('/', function () {
-//     return view('home.beranda');
-// });
+    
 
 Route::group(['middleware'=> ['auth']], function() {
     Route::group(['prefix'=>'admin'],function(){
-        Route::get('/dashboard', function () {
-            return view('pages.dashboard');
-        });
+
         Route::get('/', 'HomeController@index')->name('admin');
         Route::resource('/kelompok', 'KelompokController');
         Route::resource('/kelas', 'RoomController');
