@@ -13,29 +13,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/dashboard', function () {
-    return view('pages.dashboard');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+// Route::get('/', function () {
+//     return view('home.beranda');
+// });
+
+Route::group(['middleware'=> ['auth']], function() {
+    Route::group(['prefix'=>'admin'],function(){
+        Route::get('/dashboard', function () {
+            return view('pages.dashboard');
+        });
+        Route::get('/', 'HomeController@index')->name('admin');
+        Route::resource('/kelompok', 'KelompokController');
+        Route::resource('/kelas', 'RoomController');
+    });
 });
 
-Route::get('/kelompok', function () {
-    return view('pages.kelompok');
-});
-
-Route::get('/kelas', function () {
-    return view('pages.kelas');
-});
-
-Route::get('/tambahkelompok', function () {
-    return view('add.tambahkk');
-});
-
-Route::get('/tambahkelas', function () {
-    return view('add.tambahkelas');
-});
 
 Auth::routes();
+Route::resource('/', 'UserController');
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
+
+

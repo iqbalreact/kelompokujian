@@ -42,7 +42,7 @@
 					</div>
 
 					<div class="panel-body">
-						<button type="button" class="btn btn-success">Tambah Kelompok</button>
+						<a href="{{route('kelompok.create')}}"><button type="button" class="btn btn-success">Tambah Kelompok</button></a>
 					</div>
 
 					<table class="table datatable-basic">
@@ -55,25 +55,23 @@
 							</tr>
 						</thead>
 						<tbody>
+							@foreach ($kelompoks as $kelompok)
 							<tr>
-								<td>1</td>
-								<td><a href="#">Enright</a></td>
-								<td>Traffic Court Referee</td>
+								<td>{{$loop->iteration}}</td>
+								<td>{{$kelompok->nama_kelompok}}</td>
+								<td>{{$kelompok->pj_kelompok}}</td>
 								<td class="text-center">
-									<ul class="icons-list">
-										<li class="dropdown">
-											<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-												<i class="icon-menu9"></i>
-											</a>
-
-											<ul class="dropdown-menu dropdown-menu-right">
-												<li><a href="#"><i class="icon-file-pdf"></i> Hapus</a></li>
-												<li><a href="#"><i class="icon-file-excel"></i> Edit</a></li>
-											</ul>
-										</li>
-									</ul>
+									<div class="btn-group">
+										<a href="{{route('kelompok.edit',$kelompok->id)}}" class="btn btn-info"><i class="icon-pencil"></i></a>
+										<form action="{{route('kelompok.destroy',$kelompok->id)}}" method="POST">
+											<button type="submit" class="btn btn-danger" onclick="alert('Yakin ingi menghapus ?')" title="Hapus"><i class="icon-trash"></i> </button>
+											@csrf
+											@method('DELETE')   
+										</form>
+									</div>
 								</td>
 							</tr>
+							@endforeach
 						</tbody>
 					</table>
 				</div>
@@ -83,5 +81,6 @@
         <!-- /dashboard content -->
 
     </div>
-    <!-- /main content -->
+	<!-- /main content -->
+
 @endsection

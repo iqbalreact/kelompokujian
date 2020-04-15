@@ -1,5 +1,3 @@
-
-
 @extends('layouts.master')
 
 @section('title')
@@ -31,7 +29,8 @@
             <div class="col-md-12">
 
                 <!-- Basic layout-->
-                <form action="#">
+                <form action="{{route('kelompok.store')}}" method="POST">
+                    @csrf
                     <div class="panel panel-flat">
                         <div class="panel-heading">
                             <h5 class="panel-title">Tambah Kelompok Baru</h5>

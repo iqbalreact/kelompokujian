@@ -3,7 +3,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Tambah Kelas - TA Sipil
+    Edit Kelas - TA Sipil
 @endsection
 
 @section('page-head')
@@ -13,7 +13,7 @@
 			<div class="page-title">
 				<h4>
 					<i class="icon-arrow-left52 position-left"></i>
-					<span class="text-semibold">Tambah Kelas </span>
+					<span class="text-semibold">Edit Kelas </span>
 				</h4>
 			</div>
 
@@ -31,8 +31,11 @@
             <div class="col-md-12">
 
                 <!-- Basic layout-->
-                <form action="{{route('kelas.store')}}" method="POST">
+                @foreach ($rooms as $room)
+                
+                <form action="{{route('kelas.update',$room->id)}}" method="POST">
                     @csrf
+                    @method('PUT')
                     <div class="panel panel-flat">
                         <div class="panel-heading">
                             <h5 class="panel-title">Tambah Kelas Baru</h5>
@@ -46,24 +49,16 @@
                         </div>
 
                         <div class="panel-body">
-                            <div class="form-group">
-                                <label>Pilih Kelompok</label>
-                                <select name="kelompok_id" class="form-control">
-                                    <option value="">Pilih</option>
-                                    @foreach ($kelompoks as $kelompok) 
-                                    <option value="{{$kelompok->id}}">{{$kelompok->nama_kelompok}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-
+                            <input type="hidden" name="id" value="{{$room->id }}"> <br/>
+                            <input type="hidden" name="kelompok_id" value="{{$room->kelompok_id }}"> <br/>
                             <div class="form-group">
                                 <label>Nama Kelas</label>
-                                <input type="text" name="nama_kelas" class="form-control" placeholder="Nama Kelas">
+                                <input type="text" name="nama_kelas" value="{{$room->nama_kelas}}" class="form-control" placeholder="Nama Kelas">
                             </div>
 
                             <div class="form-group">
                                 <label>Kode Kelas</label>
-                                <input type="text" name="kode" class="form-control" placeholder="Kode Kelas">
+                                <input type="text" name="kode" class="form-control" value="{{$room->kode_kelas}}" placeholder="Kode Kelas">
                             </div>
 
                             <div class="text-left">
@@ -74,6 +69,8 @@
                     </div>
                 </form>
                 <!-- /basic layout -->
+                @endforeach
+
 
             </div>
 

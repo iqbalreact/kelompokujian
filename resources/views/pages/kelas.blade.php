@@ -42,38 +42,38 @@
 					</div>
 
 					<div class="panel-body">
-						<button type="button" class="btn btn-success">Tambah Kelompok</button>
+						<a href="{{route('kelas.create')}}"><button type="button" class="btn btn-success">Tambah Kelas</button></a>
 					</div>
 
 					<table class="table datatable-basic">
 						<thead>
 							<tr>
 								<th>No</th>
-								<th>Nama Kelas</th>
 								<th>Kelompok</th>
+								<th>Nama Kelas</th>
+								<th>Kode Kelas</th>
 								<th class="text-center">Actions</th>
 							</tr>
 						</thead>
 						<tbody>
+							@foreach ($rooms as $room)
 							<tr>
-								<td>1</td>
-								<td><a href="#">Enright</a></td>
-								<td>Traffic Court Referee</td>
+								<td>{{$loop->iteration}}</td>
+								<td>{{$room->nama_kelompok}}</td>
+								<td>{{$room->nama_kelas}}</td>
+								<td>{{$room->kode_kelas}}</td>
 								<td class="text-center">
-									<ul class="icons-list">
-										<li class="dropdown">
-											<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-												<i class="icon-menu9"></i>
-											</a>
-
-											<ul class="dropdown-menu dropdown-menu-right">
-												<li><a href="#"><i class="icon-file-pdf"></i> Hapus</a></li>
-												<li><a href="#"><i class="icon-file-excel"></i> Edit</a></li>
-											</ul>
-										</li>
-									</ul>
+									<div class="btn-group">
+										<a href="{{route('kelas.edit',$room->id)}}" class="btn btn-info"><i class="icon-pencil"></i></a>
+										<form action="{{route('kelas.destroy',$room->id)}}" method="POST">
+											<button type="submit" class="btn btn-danger" onclick="alert('Yakin ingi menghapus ?')" title="Hapus"><i class="icon-trash"></i> </button>
+											@csrf
+											@method('DELETE')   
+										</form>
+									</div>
 								</td>
 							</tr>
+							@endforeach
 						</tbody>
 					</table>
 				</div>

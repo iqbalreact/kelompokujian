@@ -1,9 +1,7 @@
-
-
 @extends('layouts.master')
 
 @section('title')
-    Tambah Kelas - TA Sipil
+    Edit Kelompok - TA Sipil
 @endsection
 
 @section('page-head')
@@ -13,7 +11,7 @@
 			<div class="page-title">
 				<h4>
 					<i class="icon-arrow-left52 position-left"></i>
-					<span class="text-semibold">Tambah Kelas </span>
+					<span class="text-semibold">Edit Kelompok </span>
 				</h4>
 			</div>
 
@@ -31,11 +29,13 @@
             <div class="col-md-12">
 
                 <!-- Basic layout-->
-                <form action="{{route('kelas.store')}}" method="POST">
+                @foreach ($kelompoks as $kelompok)
+                <form action="{{route('kelompok.update', $kelompok->id)}}" method="POST">
                     @csrf
+                    @method('PUT')
                     <div class="panel panel-flat">
                         <div class="panel-heading">
-                            <h5 class="panel-title">Tambah Kelas Baru</h5>
+                            <h5 class="panel-title">Edit Kelompok</h5>
                             <div class="heading-elements">
                                 <ul class="icons-list">
                                     <li><a data-action="collapse"></a></li>
@@ -44,33 +44,27 @@
                                 </ul>
                             </div>
                         </div>
-
+                        
+                        <input type="hidden" name="id" value="{{$kelompok->id }}"> <br/>
                         <div class="panel-body">
                             <div class="form-group">
-                                <label>Pilih Kelompok</label>
-                                <select name="kelompok_id" class="form-control">
-                                    <option value="">Pilih</option>
-                                    @foreach ($kelompoks as $kelompok) 
-                                    <option value="{{$kelompok->id}}">{{$kelompok->nama_kelompok}}</option>
-                                    @endforeach
-                                </select>
+                                <label>Nama Kelompok</label>
+                            <input type="text" name="kelompok" value="{{$kelompok->nama_kelompok}}" class="form-control">
                             </div>
 
                             <div class="form-group">
-                                <label>Nama Kelas</label>
-                                <input type="text" name="nama_kelas" class="form-control" placeholder="Nama Kelas">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Kode Kelas</label>
-                                <input type="text" name="kode" class="form-control" placeholder="Kode Kelas">
+                                <label>Penanggung Jawab</label>
+                                <input type="text" name="pj" value="{{$kelompok->pj_kelompok}}" class="form-control">
                             </div>
 
                             <div class="text-left">
-                                <button type="submit" class="btn btn-primary">Tambah Kelas</button>
+                                <button type="submit" class="btn btn-primary">Edit Kelompok</button>
                                 <button type="reset" class="btn btn-danger">Batal</button>
                             </div>
                         </div>
+                            
+                        @endforeach
+
                     </div>
                 </form>
                 <!-- /basic layout -->

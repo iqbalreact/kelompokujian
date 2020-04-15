@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Room;
 use App\Kelompok;
 use Illuminate\Http\Request;
 use DB;
 
-class KelompokController extends Controller
+class RoomController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,14 @@ class KelompokController extends Controller
      */
     public function index()
     {
-        $kelompoks =  Kelompok::orderBy('nama_kelompok')->get();
-        return view ('pages.kelompok', compact('kelompoks'));
+        //
+        $rooms = DB::table('rooms')
+        ->join('kelompoks', 'rooms.kelompok_id', '=', 'kelompoks.id')
+        ->select('rooms.*', 'kelompoks.nama_kelompok')
+        ->orderBy('nama_kelompok')
+        ->get();
+        
+        return view ('pages.kelas', compact('rooms'));
     }
 
     /**
@@ -27,8 +34,8 @@ class KelompokController extends Controller
     public function create()
     {
         //
-        
-        return view ('add.tambahkk');
+        $kelompoks = Kelompok::All(); 
+        return view ('add.tambahkelas', compact('kelompoks'));
     }
 
     /**
@@ -40,12 +47,13 @@ class KelompokController extends Controller
     public function store(Request $request)
     {
         //
-        $kelompok = new Kelompok;
-        $kelompok->nama_kelompok = $request->kelompok;
-        $kelompok->pj_kelompok = $request->pj;
+        $room = new Room;
+        $room->kelompok_id = $request->kelompok_id;
+        $room->nama_kelas = $request->nama_kelas;
+        $room->kode_kelas = $request->kode;
     
-        $kelompok->save();
-        return redirect('/admin/kelompok')->with('success', 'Berhasil Menambahkan Kelompok Keahlian');
+        $room->save();
+        return redirect('/admin/kelas')->with('success', 'Berhasil Menambahkan Kelas');
     }
 
     /**
@@ -68,9 +76,10 @@ class KelompokController extends Controller
     public function edit($id)
     {
         //
-        $kelompoks = DB::table('kelompoks')->where('id',$id)->get();
+        $kelompoks = Kelompok::All(); 
+        $rooms = DB::table('rooms')->where('id',$id)->get();
         // dd($kelompok);
-        return view ('add.editkk', compact('kelompoks'));
+        return view ('add.editkelas', compact('rooms','kelompoks'));
     }
 
     /**
@@ -83,14 +92,13 @@ class KelompokController extends Controller
     public function update(Request $request, $id)
     {
         //
-        DB::table('kelompoks')->where('id',$request->id)->update([
+        DB::table('rooms')->where('id',$request->id)->update([
             'kelompok_id' => $request->kelompok_id,
-            'nama_kelompok' => $request->kelompok,
-            'pj_kelompok' => $request->pj,
+            'nama_kelas' => $request->nama_kelas,
+            'kode_kelas' => $request->kode,
         ]);
         
-        return redirect('/admin/kelompok');
-
+        return redirect('/admin/kelas');
     }
 
     /**
@@ -102,8 +110,8 @@ class KelompokController extends Controller
     public function destroy($id)
     {
         //
-        $kelompok = Kelompok::find($id);
-        $kelompok->delete();
-        return redirect('/admin/kelompok');
+        $kelas = Room::find($id);
+        $kelas->delete();
+        return redirect('/admin/kelas');
     }
 }

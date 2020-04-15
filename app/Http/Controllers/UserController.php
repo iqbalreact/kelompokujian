@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Kelompok;
+use App\Kelas;
 use Illuminate\Http\Request;
 use DB;
 
-class KelompokController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,28 @@ class KelompokController extends Controller
      */
     public function index()
     {
-        $kelompoks =  Kelompok::orderBy('nama_kelompok')->get();
-        return view ('pages.kelompok', compact('kelompoks'));
+        //
+        $kelompoks = Kelompok::All();
+
+        $rooms = DB::table('rooms')
+        ->join('kelompoks', 'rooms.kelompok_id', '=', 'kelompoks.id')
+        ->select('rooms.*', 'kelompoks.nama_kelompok')
+        // ->groupBy('kelompoks.nama_kelompok')
+        ->get();
+
+        $result = array();
+        foreach($rooms as $d){
+            if(!isset($result[$d->kelompok_id])){
+                $result[$d->kelompok_id] = array();
+            }
+            $result[$d->kelompok_id][] = $d;
+        }
+        // dd($result);
+        
+        return view ('home.beranda', compact('kelompoks','result'));
+
+
+
     }
 
     /**
@@ -27,8 +48,6 @@ class KelompokController extends Controller
     public function create()
     {
         //
-        
-        return view ('add.tambahkk');
     }
 
     /**
@@ -40,12 +59,6 @@ class KelompokController extends Controller
     public function store(Request $request)
     {
         //
-        $kelompok = new Kelompok;
-        $kelompok->nama_kelompok = $request->kelompok;
-        $kelompok->pj_kelompok = $request->pj;
-    
-        $kelompok->save();
-        return redirect('/admin/kelompok')->with('success', 'Berhasil Menambahkan Kelompok Keahlian');
     }
 
     /**
@@ -68,9 +81,6 @@ class KelompokController extends Controller
     public function edit($id)
     {
         //
-        $kelompoks = DB::table('kelompoks')->where('id',$id)->get();
-        // dd($kelompok);
-        return view ('add.editkk', compact('kelompoks'));
     }
 
     /**
@@ -83,14 +93,6 @@ class KelompokController extends Controller
     public function update(Request $request, $id)
     {
         //
-        DB::table('kelompoks')->where('id',$request->id)->update([
-            'kelompok_id' => $request->kelompok_id,
-            'nama_kelompok' => $request->kelompok,
-            'pj_kelompok' => $request->pj,
-        ]);
-        
-        return redirect('/admin/kelompok');
-
     }
 
     /**
@@ -102,8 +104,5 @@ class KelompokController extends Controller
     public function destroy($id)
     {
         //
-        $kelompok = Kelompok::find($id);
-        $kelompok->delete();
-        return redirect('/admin/kelompok');
     }
 }
