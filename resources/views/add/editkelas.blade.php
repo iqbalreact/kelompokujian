@@ -47,7 +47,6 @@
                                 </ul>
                             </div>
                         </div>
-
                         <div class="panel-body">
                             <input type="hidden" name="id" value="{{$room->id }}"> <br/>
                             <input type="hidden" name="kelompok_id" value="{{$room->kelompok_id }}"> <br/>
@@ -62,8 +61,8 @@
                             </div>
 
                             <div class="text-left">
-                                <button type="submit" class="btn btn-primary">Tambah Kelas</button>
-                                <button type="reset" class="btn btn-danger">Batal</button>
+                                <button type="submit" class="btn btn-primary">Edit Kelas</button>
+                                <button type="reset" class="btn btn-danger">Reset</button>
                             </div>
                         </div>
                     </div>
