@@ -13,11 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/beranda', function () {
+    return view('pages.user.home');
+});
 
-    
+Route::get('/kelas', function () {
+    return view('pages.user.kelas');
+});
+
+Route::get('/pengumuman', function () {
+    return view('pages.user.pengumuman');
+});
+
+
 
 Route::group(['middleware'=> ['auth']], function() {
     Route::group(['prefix'=>'admin'],function(){
@@ -27,9 +35,8 @@ Route::group(['middleware'=> ['auth']], function() {
         Route::resource('/kelas', 'RoomController');
     });
 });
-
-
 Auth::routes();
+
 Route::resource('/', 'UserController');
 
 // Route::get('/home', 'HomeController@index')->name('home');
