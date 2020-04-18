@@ -2,7 +2,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Kelas - TA Sipil
+    Ruangan Kelas - TA Sipil
 @endsection
 
 @section('page-head')
@@ -12,7 +12,7 @@
 			<div class="page-title">
 				<h4>
 					<i class="icon-arrow-left52 position-left"></i>
-					<span class="text-semibold">Kelola Kelas </span>
+					<span class="text-semibold">Kelola Ruangan Kelas </span>
 				</h4>
 			</div>
 
@@ -31,7 +31,7 @@
 				<!-- Basic datatable -->
 				<div class="panel panel-flat">
 					<div class="panel-heading">
-						<h5 class="panel-title"><b>Daftar Kelompok</b></h5>
+						<h5 class="panel-title"><b>Daftar Ruangan Kelas</b></h5>
 						<div class="heading-elements">
 							<ul class="icons-list">
 		                		<li><a data-action="collapse"></a></li>
@@ -42,21 +42,30 @@
 					</div>
 
 					<div class="panel-body">
-						<a href="{{route('kelas.create')}}"><button type="button" class="btn btn-success">Tambah Kelas</button></a>
+						<a href="{{route('course.addcourse')}}"><button type="button" class="btn btn-success">Tambah Ruangan Kelas</button></a>
 					</div>
 
 					<table class="table datatable-basic table-scrollable">
 						<thead>
 							<tr>
 								<th>No</th>
-								<th>Nama Kelas</th>
+								<th>Nama Ruangan</th>
 								<th>Kelompok</th>
-								<th>Kode Kelas</th>
+								<th>Kode Ruangan</th>
 								<th class="text-center">Actions</th>
 							</tr>
 						</thead>
 						<tbody>
-							@foreach ($rooms as $room)
+
+							<tr>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+							</tr>
+
+							{{-- @foreach ($rooms as $room)
 							<tr>
 								<td>{{$loop->iteration}}</td>
 								<td>{{$room->nama_kelas}}</td>
@@ -73,7 +82,7 @@
 									</div>
 								</td>
 							</tr>
-							@endforeach
+							@endforeach --}}
 						</tbody>
 					</table>
 				</div>

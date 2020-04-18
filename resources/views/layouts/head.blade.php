@@ -34,7 +34,8 @@
 	<script type="text/javascript" src="{{asset('assets/js/plugins/pickers/daterangepicker.js')}}"></script>
 
 	<script type="text/javascript" src="{{asset('assets/js/core/app.js')}}"></script>
-	<script type="text/javascript" src="{{asset('assets/js/pages/dashboard.js')}}"></script>
+	{{-- <script type="text/javascript" src="{{asset('assets/js/pages/dashboard.js')}}"></script> --}}
 	<!-- /theme JS files -->
+
 
 </head>

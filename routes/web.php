@@ -25,14 +25,30 @@ Route::get('/pengumuman', function () {
     return view('pages.user.pengumuman');
 });
 
-
-
 Route::group(['middleware'=> ['auth']], function() {
     Route::group(['prefix'=>'admin'],function(){
 
         Route::get('/', 'HomeController@index')->name('admin');
         Route::resource('/kelompok', 'KelompokController');
         Route::resource('/kelas', 'RoomController');
+        Route::resource('/pengumuman', 'PengumumanController');
+        // course route
+        Route::get('/course', 'RuanganController@index')->name('course');
+        Route::get('/addcourse', 'RuanganController@addCourse')->name('course.addcourse');
+        Route::post('/addcourse', 'RuanganController@storeCourse')->name('course.storecourse');
+        Route::post('/updatecourse', 'RuanganController@updateCourse')->name('course.updatecourse');
+        Route::post('/archivecourse', 'RuanganController@archiveCourse')->name('course.archivecourse');
+        //teacher course route
+        Route::get('/teacher', 'RuanganController@teacher')->name('course.teacher-course');
+        Route::post('/addteacher', 'RuanganController@addTeacher')->name('course.addteacher-course');
+        Route::post('/deleteteacher', 'RuanganController@deleteTeacher')->name('course.deleteteacher-course');
+        //student course route
+        Route::get('/student', 'RuanganController@student')->name('course.student-course');
+        Route::post('/addstudent', 'RuanganController@addStudent')->name('course.addstudent-course');
+        Route::post('/deletestudent', 'RuanganController@deleteStudent')->name('course.deletestudent-course');
+        //Get Detail Course
+        Route::get('/coursedetail/{courseId}', 'RuanganController@courseDetail')->name('course.detail-course');
+        Route::get('/studentlist/{courseId}', 'RuanganController@studentList')->name('course.liststudent-course');
     });
 });
 Auth::routes();

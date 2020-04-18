@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Room;
-use App\Kelompok;
+use App\Pengumuman;
 use Illuminate\Http\Request;
 use DB;
-
-class RoomController extends Controller
+class PengumumanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,13 +15,9 @@ class RoomController extends Controller
     public function index()
     {
         //
-        $rooms = DB::table('rooms')
-        ->join('kelompoks', 'rooms.kelompok_id', '=', 'kelompoks.id')
-        ->select('rooms.*', 'kelompoks.nama_kelompok')
-        ->orderBy('nama_kelompok')
-        ->get();
-        
-        return view ('pages.kelas', compact('rooms'));
+        $pengumumans =  Pengumuman::All();
+        // dd($pengumumans);
+        return view ('pages.pengumuman', compact('pengumumans'));
     }
 
     /**
@@ -34,8 +28,7 @@ class RoomController extends Controller
     public function create()
     {
         //
-        $kelompoks = Kelompok::All(); 
-        return view ('add.tambahkelas', compact('kelompoks'));
+        return view ('add.tambahpengumuman');
     }
 
     /**
@@ -47,13 +40,13 @@ class RoomController extends Controller
     public function store(Request $request)
     {
         //
-        $room = new Room;
-        $room->kelompok_id = $request->kelompok_id;
-        $room->nama_kelas = $request->nama_kelas;
-        $room->kode_kelas = $request->kode;
+        $pengumuman = new Pengumuman;
+        $pengumuman->kategori_pengumuman = $request->kategori;
+        $pengumuman->judul_pengumuman = $request->judul;
+        $pengumuman->isi_pengumuman = $request->isi;
     
-        $room->save();
-        return redirect('/admin/kelas')->with('success', 'Berhasil Menambahkan Kelas');
+        $pengumuman->save();
+        return redirect('/admin/pengumuman')->with('success', 'Berhasil Menambahkan Pengumuman');
     }
 
     /**
@@ -76,9 +69,10 @@ class RoomController extends Controller
     public function edit($id)
     {
         //
-        $kelompoks = Kelompok::All(); 
-        $rooms = DB::table('rooms')->where('id',$id)->get();
-        return view ('add.editkelas', compact('rooms','kelompoks'));
+        $pengumumans = DB::table('pengumumen')->where('id',$id)->get();
+        // dd($kelompok);
+        return view ('add.editpengumuman', compact('pengumumans'));
+
     }
 
     /**
@@ -91,13 +85,12 @@ class RoomController extends Controller
     public function update(Request $request, $id)
     {
         //
-        DB::table('rooms')->where('id',$request->id)->update([
-            'kelompok_id' => $request->kelompok_id,
-            'nama_kelas' => $request->nama_kelas,
-            'kode_kelas' => $request->kode,
+        DB::table('pengumumen')->where('id',$request->id)->update([
+            'kategori_pengumuman' => $request->kategori,
+            'judul_pengumuman' => $request->judul,
+            'isi_pengumuman' => $request->isi,
         ]);
-        
-        return redirect('/admin/kelas');
+        return redirect('/admin/pengumuman');
     }
 
     /**
@@ -109,8 +102,8 @@ class RoomController extends Controller
     public function destroy($id)
     {
         //
-        $kelas = Room::find($id);
-        $kelas->delete();
-        return redirect('/admin/kelas');
+        $pengumuman = Pengumuman::find($id);
+        $pengumuman->delete();
+        return redirect('/admin/pengumuman');
     }
 }

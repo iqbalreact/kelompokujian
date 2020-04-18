@@ -8,8 +8,11 @@
     <!-- banner -->
     <!-- details page -->
 <section class="pt-5">
+    <div class="container">
+        <h3 class="section-title">Daftar Kelas</h3>
+    </div>
     <div class="container shadow section-sm rounded">
-      <div class="row">
+        <div class="row">
         <!-- sidebar -->
         <div class="col-lg-3">
           <ul class="sidenav">

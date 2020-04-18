@@ -2,7 +2,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Kelas - TA Sipil
+    Pengumuman - TA Sipil
 @endsection
 
 @section('page-head')
@@ -12,7 +12,7 @@
 			<div class="page-title">
 				<h4>
 					<i class="icon-arrow-left52 position-left"></i>
-					<span class="text-semibold">Kelola Kelas </span>
+					<span class="text-semibold">Pengumuman Kelas Tugas Akhir </span>
 				</h4>
 			</div>
 
@@ -31,7 +31,7 @@
 				<!-- Basic datatable -->
 				<div class="panel panel-flat">
 					<div class="panel-heading">
-						<h5 class="panel-title"><b>Daftar Kelompok</b></h5>
+						<h5 class="panel-title"><b>Daftar Pengumuman</b></h5>
 						<div class="heading-elements">
 							<ul class="icons-list">
 		                		<li><a data-action="collapse"></a></li>
@@ -42,30 +42,37 @@
 					</div>
 
 					<div class="panel-body">
-						<a href="{{route('kelas.create')}}"><button type="button" class="btn btn-success">Tambah Kelas</button></a>
+						<a href="{{route('pengumuman.create')}}"><button type="button" class="btn btn-success">Tambah Pengumuman</button></a>
 					</div>
 
-					<table class="table datatable-basic table-scrollable">
+					<table class="table datatable-basic">
 						<thead>
 							<tr>
 								<th>No</th>
-								<th>Nama Kelas</th>
-								<th>Kelompok</th>
-								<th>Kode Kelas</th>
+								<th>Kategori Pengumuman</th>
+								<th>Judul Pengumuman</th>
+								<th>Isi Pengumuman</th>
 								<th class="text-center">Actions</th>
 							</tr>
 						</thead>
 						<tbody>
-							@foreach ($rooms as $room)
+							@foreach ($pengumumans as $pengumuman)
 							<tr>
 								<td>{{$loop->iteration}}</td>
-								<td>{{$room->nama_kelas}}</td>
-								<td>{{$room->nama_kelompok}}</td>
-								<td>{{$room->kode_kelas}}</td>
+								<td>
+										@if ($pengumuman->kategori_pengumuman === 'soutline')
+											Seminar Outline
+										@else
+											Sidang Akhir
+										@endif
+									
+								</td>
+								<td>{{$pengumuman->judul_pengumuman}}</td>
+								<td>{!! $pengumuman->isi_pengumuman !!}</td>
 								<td class="text-center">
 									<div class="btn-group">
-										<a href="{{route('kelas.edit',$room->id)}}" class="btn btn-info"><i class="icon-pencil"></i></a>
-										<form action="{{route('kelas.destroy',$room->id)}}" method="POST">
+										<a href="{{route('pengumuman.edit',$pengumuman->id)}}" class="btn btn-info"><i class="icon-pencil"></i></a>
+										<form action="{{route('pengumuman.destroy',$pengumuman->id)}}" method="POST">
 											<button type="submit" class="btn btn-danger" onclick="alert('Yakin ingi menghapus ?')" title="Hapus"><i class="icon-trash"></i> </button>
 											@csrf
 											@method('DELETE')   
@@ -83,5 +90,6 @@
         <!-- /dashboard content -->
 
     </div>
-    <!-- /main content -->
+	<!-- /main content -->
+
 @endsection

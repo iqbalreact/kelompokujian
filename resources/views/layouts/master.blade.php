@@ -21,7 +21,7 @@
 	</div>
 	<!-- /page container -->
 
-    @include('layouts.footer')
-
+	@include('layouts.footer')
+	
 </body>
 </html>

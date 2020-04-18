@@ -12,11 +12,7 @@
         <div class="col-lg-7 text-center text-lg-left">
           <h3 class="mb-4">Kelas Tugas Akhir Teknik Sipil Universitas Tanjungpura</h3>
           <p class="mb-4">Lorem ipsum dolor amet, consetetur sadiffspscing elitr, diam nonumy invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua At.</p>
-          <form class="search-wrapper" action="http://demo.themefisher.com/godocs/search.html">
-            <input id="search-by" name="s" type="search" class="form-control form-control-lg"
-              placeholder="Cari Kelas Kamu Disini...">
-            <button type="submit" class="btn btn-primary">Cari Kelas</button>
-          </form>
+        <a href="{{url('/kelas')}}"><button type="submit" class="btn btn-primary">Cari Kelas Kamu</button></a>
         </div>
         <div class="col-lg-4 d-lg-block d-none">
           <img src="{{asset('user/images/banner.jpg')}}" alt="illustration" class="img-fluid">
@@ -38,7 +34,7 @@
               <i class="card-icon ti-panel mb-4"></i>
               <h3 class="card-title h4">Manajemen Rekayasa Konstruksi</h3>
               <p class="card-text">Cras at dolor eget urna varius faucibus tempus in elit dolor sit amet.</p>
-              <a href="list.html" class="stretched-link"></a>
+              <a href="{{url('/kelas')}}" class="stretched-link"></a>
             </div>
           </div>
         </div>
@@ -49,7 +45,7 @@
               <i class="card-icon ti-credit-card mb-4"></i>
               <h3 class="card-title h4">Rekayasa Transportasi</h3>
               <p class="card-text">Cras at dolor eget urna varius faucibus tempus in elit dolor sit amet.</p>
-              <a href="list.html" class="stretched-link"></a>
+              <a href="{{url('/kelas')}}" class="stretched-link"></a>
             </div>
           </div>
         </div>
@@ -60,7 +56,7 @@
               <i class="card-icon ti-package mb-4"></i>
               <h3 class="card-title h4">Geoteknik</h3>
               <p class="card-text">Cras at dolor eget urna varius faucibus tempus in elit dolor sit amet.</p>
-              <a href="list.html" class="stretched-link"></a>
+              <a href="{{url('/kelas')}}" class="stretched-link"></a>
             </div>
           </div>
         </div>
@@ -71,7 +67,7 @@
               <i class="card-icon ti-settings mb-4"></i>
               <h5 class="card-title h4">Teknik Sumber Daya Air</h5>
               <p class="card-text">Cras at dolor eget urna varius faucibus tempus in elit dolor sit amet.</p>
-              <a href="list.html" class="stretched-link"></a>
+              <a href="{{url('/kelas')}}" class="stretched-link"></a>
             </div>
           </div>
         </div>
@@ -82,7 +78,7 @@
               <i class="card-icon ti-settings mb-4"></i>
               <h5 class="card-title h4">Struktur</h5>
               <p class="card-text">Cras at dolor eget urna varius faucibus tempus in elit dolor sit amet.</p>
-              <a href="list.html" class="stretched-link"></a>
+              <a href="{{url('/kelas')}}" class="stretched-link"></a>
             </div>
           </div>
         </div>
@@ -95,7 +91,7 @@
   <!-- faq -->
 <section class="section pb-0">
     <div class="container">
-      <h3 class="section-title">Jadwal Kelas Tugas Akhir</h3>
+      <h3 class="section-title">Pengumuman Tugas Akhir</h3>
       <div class="row masonry-wrapper">
         <!-- faq item -->
         <div class="col-md-6 mb-4">
@@ -176,12 +172,12 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-4 text-center d-lg-block d-none">
-          <img src="{{asset('user/images/cta-illustration.jpg')}}" class="img-fluid" alt="">
+          <img src="{{asset('user/images/431.png')}}" class="img-fluid" alt="">
         </div>
         <div class="col-lg-8 text-lg-left text-center">
-          <h3 class="mb-3">Lihat Pengumuman</h3>
+          <h3 class="mb-3">Lihat Jadwal Tugas Akhir</h3>
           <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam <br> nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</p>
-          <a href="contact.html" class="btn btn-primary">Lihat</a>
+          <a href="contact.html" class="btn btn-primary">Lihat Jadwal</a>
         </div>
       </div>
     </div>

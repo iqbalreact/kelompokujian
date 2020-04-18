@@ -22,7 +22,6 @@ class UserController extends Controller
         $rooms = DB::table('rooms')
         ->join('kelompoks', 'rooms.kelompok_id', '=', 'kelompoks.id')
         ->select('rooms.*', 'kelompoks.nama_kelompok')
-        // ->groupBy('kelompoks.nama_kelompok')
         ->get();
 
         $result = array();
