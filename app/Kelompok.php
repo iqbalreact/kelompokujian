@@ -15,4 +15,8 @@ class Kelompok extends Model
         return $this->hasMany('App\Kelas');
     }
 
+    public function ruangans(){
+        return $this->hasMany('App\Ruangan');
+    }
+
 }

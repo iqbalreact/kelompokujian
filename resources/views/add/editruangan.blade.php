@@ -1,7 +1,9 @@
+
+
 @extends('layouts.master')
 
 @section('title')
-    Tambah Ruangan - TA Sipil
+    Edit Ruangan - TA Sipil
 @endsection
 
 @section('page-head')
@@ -11,7 +13,7 @@
 			<div class="page-title">
 				<h4>
 					<i class="icon-arrow-left52 position-left"></i>
-					<span class="text-semibold">Tambah Ruangan </span>
+					<span class="text-semibold">Edit Ruangan </span>
 				</h4>
 			</div>
 
@@ -27,13 +29,12 @@
         <!-- Dashboard content -->
         <div class="row">
             <div class="col-md-12">
-
-                <!-- Basic layout-->
-                <form action="{{route('course.storecourse')}}" method="POST">
+                <form action="{{route('course.updatecourse')}}" method="POST">
+                    @method('PUT')
                     @csrf
                     <div class="panel panel-flat">
                         <div class="panel-heading">
-                            <h5 class="panel-title">Tambah Ruangan Baru</h5>
+                            <h5 class="panel-title">Edit Ruangan</h5>
                             <div class="heading-elements">
                                 <ul class="icons-list">
                                     <li><a data-action="collapse"></a></li>
@@ -43,9 +44,9 @@
                             </div>
                         </div>
 
-                        
-
                         <div class="panel-body">
+                            <input type="hidden" name="id" value="{{ $details['data']['id'] }}">
+                            <input type="hidden" id="ownerId" name="ownerId" value="{{ $details['data']['ownerId'] }}" class="form-control">
                             <div class="form-group">
                                 <label>Pilih Kelompok</label>
                                 <select name="kelompok_id" class="form-control">
@@ -57,38 +58,31 @@
                             </div>
                             <div class="form-group">
                                 <label>Nama Ruangan Kelas</label>
-                                <input type="text" id="name" name="name" class="form-control" placeholder="Masukan Ruangan Kelas">
+                                <input type="text" id="name" name="name" value="{{ $details['data']['name'] }}" class="form-control">
                             </div>
-
-                            <div class="form-group">
-                                <label>Email Pemilik/Guru Ruangan</label>
-                                <input type="text" id="ownerId" name="ownerId" class="form-control" placeholder="Masukan Email Pemilik/Guru">
-                            </div>
-
                             <div class="form-group">
                                 <label>Deskripsi Ruangan Kelas</label>
-                                <textarea rows="3" cols="3" id="description" name="description" class="form-control" placeholder="Masukan Deskripsi Ruangan"></textarea>
+                                <textarea rows="3" cols="3" id="description" name="description" class="form-control">{{ $details['data']['description'] }}</textarea>
                             </div>
 
                             <div class="form-group">
                                 <label>Judul Deskripsi Ruangan Kelas</label>
-                                <input type="text" id="descriptionHeading" name="descriptionHeading" class="form-control" placeholder="Masukan Judul Deskripsi">
+                                <input type="text" id="descriptionHeading" name="descriptionHeading" class="form-control" value="{{ $details['data']['descriptionHeading'] }}">
                             </div>
 
                             <div class="form-group">
                                 <label>Bagian</label>
-                                <input type="text" id="section" name="section" class="form-control" placeholder="Masukan Bagian">
+                                <input type="text" id="section" name="section" class="form-control" value="{{ $details['data']['section'] }}">
                             </div>
 
                             <div class="text-left">
-                                <button type="submit" class="btn btn-primary">Buat Ruangan</button>
+                                <button type="submit" class="btn btn-primary">Update Ruangan</button>
                                 <button type="reset" class="btn btn-danger">Reset</button>
                             </div>
                         </div>
                     </div>
                 </form>
-                <!-- /basic layout -->
-
+                {{-- @endforeach --}}
             </div>
 
         </div>

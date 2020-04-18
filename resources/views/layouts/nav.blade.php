@@ -13,7 +13,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown dropdown-user">
 					<a class="dropdown-toggle" data-toggle="dropdown">
-						<img src="assets/images/placeholder.jpg" alt="">
+						<img src="{{asset('assets/images/placeholder.jpg')}}" alt="">
 						<span>{{ Auth::user()->name }}</span>
 						<i class="caret"></i>
 					</a>

@@ -35,8 +35,9 @@ Route::group(['middleware'=> ['auth']], function() {
         // course route
         Route::get('/course', 'RuanganController@index')->name('course');
         Route::get('/addcourse', 'RuanganController@addCourse')->name('course.addcourse');
-        Route::post('/addcourse', 'RuanganController@storeCourse')->name('course.storecourse');
-        Route::post('/updatecourse', 'RuanganController@updateCourse')->name('course.updatecourse');
+        Route::get('/editcourse/{courseId}', 'RuanganController@editCourse')->name('course.editcourse');
+        Route::post('/storecourse', 'RuanganController@storeCourse')->name('course.storecourse');
+        Route::put('/updatecourse', 'RuanganController@updateCourse')->name('course.updatecourse');
         Route::post('/archivecourse', 'RuanganController@archiveCourse')->name('course.archivecourse');
         //teacher course route
         Route::get('/teacher', 'RuanganController@teacher')->name('course.teacher-course');
@@ -47,8 +48,8 @@ Route::group(['middleware'=> ['auth']], function() {
         Route::post('/addstudent', 'RuanganController@addStudent')->name('course.addstudent-course');
         Route::post('/deletestudent', 'RuanganController@deleteStudent')->name('course.deletestudent-course');
         //Get Detail Course
-        Route::get('/coursedetail/{courseId}', 'RuanganController@courseDetail')->name('course.detail-course');
-        Route::get('/studentlist/{courseId}', 'RuanganController@studentList')->name('course.liststudent-course');
+        Route::get('/course/detail/{courseId}', 'RuanganController@courseDetail')->name('course.detail-course');
+        Route::get('/course/studentlist/{courseId}', 'RuanganController@studentList')->name('course.liststudent-course');
     });
 });
 Auth::routes();

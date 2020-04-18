@@ -35,6 +35,7 @@
 
 	<script type="text/javascript" src="{{asset('assets/js/core/app.js')}}"></script>
 	{{-- <script type="text/javascript" src="{{asset('assets/js/pages/dashboard.js')}}"></script> --}}
+	{{-- <meta name="csrf-token" content="{{ csrf_token() }}" /> --}}
 	<!-- /theme JS files -->
 
 

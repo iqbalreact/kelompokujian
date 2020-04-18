@@ -52,29 +52,22 @@
 								<th>Nama Ruangan</th>
 								<th>Kelompok</th>
 								<th>Kode Ruangan</th>
+								<th>Link Ruangan</th>
 								<th class="text-center">Actions</th>
 							</tr>
 						</thead>
 						<tbody>
-
-							<tr>
-								<td>1</td>
-								<td>1</td>
-								<td>1</td>
-								<td>1</td>
-								<td>1</td>
-							</tr>
-
-							{{-- @foreach ($rooms as $room)
+							@foreach ($ruangans as $ruangans)
 							<tr>
 								<td>{{$loop->iteration}}</td>
-								<td>{{$room->nama_kelas}}</td>
-								<td>{{$room->nama_kelompok}}</td>
-								<td>{{$room->kode_kelas}}</td>
+								<td>{{$ruangans->courseName}}</td>
+								<td>{{$ruangans->nama_kelompok}}</td>
+								<td>{{$ruangans->courseId}}</td>
+								<td>{{$ruangans->courseLink}}</td>
 								<td class="text-center">
 									<div class="btn-group">
-										<a href="{{route('kelas.edit',$room->id)}}" class="btn btn-info"><i class="icon-pencil"></i></a>
-										<form action="{{route('kelas.destroy',$room->id)}}" method="POST">
+										<a href="{{route('course.editcourse',$ruangans->courseId)}}" class="btn btn-info"><i class="icon-pencil"></i></a>
+										<form action="{{route('course.archivecourse',$ruangans->id)}}" method="POST">
 											<button type="submit" class="btn btn-danger" onclick="alert('Yakin ingi menghapus ?')" title="Hapus"><i class="icon-trash"></i> </button>
 											@csrf
 											@method('DELETE')   
@@ -82,7 +75,7 @@
 									</div>
 								</td>
 							</tr>
-							@endforeach --}}
+							@endforeach
 						</tbody>
 					</table>
 				</div>
