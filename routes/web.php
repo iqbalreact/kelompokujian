@@ -38,7 +38,7 @@ Route::group(['middleware'=> ['auth']], function() {
         Route::get('/editcourse/{courseId}', 'RuanganController@editCourse')->name('course.editcourse');
         Route::post('/storecourse', 'RuanganController@storeCourse')->name('course.storecourse');
         Route::put('/updatecourse', 'RuanganController@updateCourse')->name('course.updatecourse');
-        Route::post('/archivecourse', 'RuanganController@archiveCourse')->name('course.archivecourse');
+        Route::post('/archivecourse/', 'RuanganController@archiveCourse')->name('course.archivecourse');
         //teacher course route
         Route::get('/teacher', 'RuanganController@teacher')->name('course.teacher-course');
         Route::post('/addteacher', 'RuanganController@addTeacher')->name('course.addteacher-course');

@@ -51,7 +51,7 @@
 								<th>No</th>
 								<th>Nama Ruangan</th>
 								<th>Kelompok</th>
-								<th>Kode Ruangan</th>
+								<th>ID Ruangan</th>
 								<th>Link Ruangan</th>
 								<th class="text-center">Actions</th>
 							</tr>
@@ -65,12 +65,13 @@
 								<td>{{$ruangans->courseId}}</td>
 								<td>{{$ruangans->courseLink}}</td>
 								<td class="text-center">
+									<button type="button" class="btn btn-default btn-sm" data-toggle="modal" href="#detailCourse" onclick="getDetailCourse({{$ruangans->courseId}})">Detail</button>
+									<a href="{{route('course.editcourse',$ruangans->courseId)}}" class="btn btn-info">Edit</a>
 									<div class="btn-group">
-										<a href="{{route('course.editcourse',$ruangans->courseId)}}" class="btn btn-info"><i class="icon-pencil"></i></a>
-										<form action="{{route('course.archivecourse',$ruangans->id)}}" method="POST">
-											<button type="submit" class="btn btn-danger" onclick="alert('Yakin ingi menghapus ?')" title="Hapus"><i class="icon-trash"></i> </button>
+										<form action="{{route('course.archivecourse')}}" method="POST">
 											@csrf
-											@method('DELETE')   
+											<input type="hidden" name="id" value="{{$ruangans->courseId}}">
+											<button type="submit" class="btn btn-danger" onclick="alert('Yakin ingi menghapus ?')" title="Hapus">Hapus</button>
 										</form>
 									</div>
 								</td>
@@ -83,7 +84,61 @@
             </div>
         </div>
         <!-- /dashboard content -->
-
     </div>
-    <!-- /main content -->
+	<!-- /main content -->
+
+	<!-- Modal with h6 -->
+	<div id="detailCourse" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h6 class="modal-title">Detail Ruangan Kelas</h6>
+				</div>
+
+				<div class="modal-body">
+					<h6 class="text-semibold">Text in a modal</h6>
+					<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+					<hr>
+
+					<h6 class="text-semibold">Another paragraph</h6>
+					<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+					<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+					{{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /modal with h6 -->
+
+	<script src="">
+		function reverseGeocodeAddress() {
+			$.ajax({
+				type: "POST",
+				url: '{{ url('admin/course/detail') }}',
+				data: "",
+				success: function() {
+					console.log("Geodata sent");
+				}
+			})
+		};
+	</script>
+
+	<script src="javascript">
+	var url = '{{ url('admin/course/detail') }}';
+	function getDetailCourse(id){
+		var url_id = url + '/' + id
+		$.get(url_id, function(data){
+			$('#id-edit-tembusan').val(data.id);
+		});
+	}
+
+
+	</script>
+
 @endsection
