@@ -62,17 +62,17 @@
 
                             <div class="form-group">
                                 <label>Email Pemilik/Guru Ruangan</label>
-                                <input type="text" id="ownerId" name="ownerId" class="form-control" placeholder="Masukan Email Pemilik/Guru">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Deskripsi Ruangan Kelas</label>
-                                <textarea rows="3" cols="3" id="description" name="description" class="form-control" placeholder="Masukan Deskripsi Ruangan"></textarea>
+                                <input type="text" id="ownerId" name="ownerId" class="form-control" placeholder="Masukan Email Guru">
                             </div>
 
                             <div class="form-group">
                                 <label>Judul Deskripsi Ruangan Kelas</label>
                                 <input type="text" id="descriptionHeading" name="descriptionHeading" class="form-control" placeholder="Masukan Judul Deskripsi">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Deskripsi Ruangan Kelas</label>
+                                <textarea rows="3" cols="3" id="description" name="description" class="form-control" placeholder="Masukan Deskripsi Ruangan"></textarea>
                             </div>
 
                             <div class="form-group">

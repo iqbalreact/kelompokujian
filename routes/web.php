@@ -39,19 +39,28 @@ Route::group(['middleware'=> ['auth']], function() {
         Route::post('/storecourse', 'RuanganController@storeCourse')->name('course.storecourse');
         Route::put('/updatecourse', 'RuanganController@updateCourse')->name('course.updatecourse');
         Route::post('/archivecourse/', 'RuanganController@archiveCourse')->name('course.archivecourse');
+        
         //teacher course route
-        Route::get('/teacher', 'RuanganController@teacher')->name('course.teacher-course');
-        Route::post('/addteacher', 'RuanganController@addTeacher')->name('course.addteacher-course');
+        Route::get('/course/teacher/{courseId}', 'RuanganController@teacher')->name('course.teacher-course');
+        Route::post('/course/addteacher', 'RuanganController@addTeacher')->name('course.addteacher-course');
         Route::post('/deleteteacher', 'RuanganController@deleteTeacher')->name('course.deleteteacher-course');
+        
         //student course route
-        Route::get('/student', 'RuanganController@student')->name('course.student-course');
-        Route::post('/addstudent', 'RuanganController@addStudent')->name('course.addstudent-course');
-        Route::post('/deletestudent', 'RuanganController@deleteStudent')->name('course.deletestudent-course');
+        Route::get('/course/student/{courseId}', 'RuanganController@student')->name('course.student-course');
+        Route::post('/course/addstudent', 'RuanganController@addStudent')->name('course.addstudent-course');
+        Route::post('/course/student/delete', 'RuanganController@deleteStudent')->name('course.deletestudent-course');
+        
         //Get Detail Course
         Route::get('/course/detail/{courseId}', 'RuanganController@courseDetail')->name('course.detail-course');
         Route::get('/course/studentlist/{courseId}', 'RuanganController@studentList')->name('course.liststudent-course');
+
+        //active classroom
+        Route::get('course/active/{courseId}', 'RuanganController@activeRoom')->name('course.active-course');
     });
 });
+
+
+
 Auth::routes();
 
 Route::resource('/', 'UserController');

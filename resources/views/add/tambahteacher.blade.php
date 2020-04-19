@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Tambah Pengumuman- TA Sipil
+    Tambah Dosen / Pengajar - TA Sipil
 @endsection
 
 @section('page-head')
@@ -11,7 +11,7 @@
 			<div class="page-title">
 				<h4>
 					<i class="icon-arrow-left52 position-left"></i>
-					<span class="text-semibold">Tambah Pengumuman</span>
+					<span class="text-semibold">Tambah Dosen / Pengajar </span>
 				</h4>
 			</div>
 
@@ -27,13 +27,12 @@
         <!-- Dashboard content -->
         <div class="row">
             <div class="col-md-12">
-
                 <!-- Basic layout-->
-                <form action="{{route('pengumuman.store')}}" method="POST">
+                <form action="{{route('course.addteacher-course')}}" method="POST">
                     @csrf
                     <div class="panel panel-flat">
                         <div class="panel-heading">
-                            <h5 class="panel-title">Tambah Pengumuman Baru</h5>
+                            <h5 class="panel-title">Tambah Dosen / Pengajar</h5>
                             <div class="heading-elements">
                                 <ul class="icons-list">
                                     <li><a data-action="collapse"></a></li>
@@ -42,44 +41,23 @@
                                 </ul>
                             </div>
                         </div>
-
                         <div class="panel-body">
                             <div class="form-group">
-                                <label>Kategori Pengumuman</label>
-                                <select name="kategori" class="form-control">
-                                    <option value="">Pilih</option>
-                                    <option value="soutline">Seminar Outline</option>
-                                    <option value="sakhir">Sidang Akhir</option>
-                                </select>
+                                <input type="hidden" value="{{$id}}" name="courseId">
+                                <label>Email Dosen / Pengajar</label>
+                                <input type="email" id="userId" name="userId" class="form-control" placeholder="Email Pengajar / Dosen">
                             </div>
-
-                            <div class="form-group">
-                                <label>Judul Pengumuman</label>
-                                <input type="text" name="judul" class="form-control" placeholder="Judul Pengumuman">
-                            </div>
-                            <div class="form-group">
-                                <label>Isi Pengumuman</label>
-                                <textarea name="isi" rows="40"></textarea>
-                            </div>
-
                             <div class="text-left">
-                                <button type="submit" class="btn btn-primary">Tambah Kelompok</button>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
                                 <a href="{{ url()->previous() }}" class="btn btn-danger">Kembali</a>
                             </div>
                         </div>
                     </div>
                 </form>
                 <!-- /basic layout -->
-
             </div>
-
         </div>
         <!-- /dashboard content -->
-
     </div>
     <!-- /main content -->
-    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-	<script>
-		CKEDITOR.replace( 'isi' );
-	</script>
 @endsection

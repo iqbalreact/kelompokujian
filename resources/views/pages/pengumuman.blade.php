@@ -70,8 +70,8 @@
 								<td>{{$pengumuman->judul_pengumuman}}</td>
 								<td>{!! $pengumuman->isi_pengumuman !!}</td>
 								<td class="text-center">
+									<a href="{{route('pengumuman.edit',$pengumuman->id)}}" class="btn btn-info"><i class="icon-pencil"></i></a>
 									<div class="btn-group">
-										<a href="{{route('pengumuman.edit',$pengumuman->id)}}" class="btn btn-info"><i class="icon-pencil"></i></a>
 										<form action="{{route('pengumuman.destroy',$pengumuman->id)}}" method="POST">
 											<button type="submit" class="btn btn-danger" onclick="alert('Yakin ingi menghapus ?')" title="Hapus"><i class="icon-trash"></i> </button>
 											@csrf

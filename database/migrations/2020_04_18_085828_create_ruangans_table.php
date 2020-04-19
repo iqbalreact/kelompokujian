@@ -17,7 +17,10 @@ class CreateRuangansTable extends Migration
             $table->id();
             $table->integer('kelompok_id');
             $table->string('courseId');
+            $table->string('ownerId');
             $table->string('courseName');
+            $table->string('courseState');
+            $table->string('enrollmentCode');
             $table->string('courseLink');
             $table->timestamps();
         });

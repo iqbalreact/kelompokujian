@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/course', 'ApiCourseContrioller@courseAll')->name('course.all');
+Route::get('/course/{courseId}', 'ApiCourseContrioller@courseDetail')->name('course.all');

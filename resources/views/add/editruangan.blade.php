@@ -77,7 +77,7 @@
 
                             <div class="text-left">
                                 <button type="submit" class="btn btn-primary">Update Ruangan</button>
-                                <button type="reset" class="btn btn-danger">Reset</button>
+                                <a href="{{ url()->previous() }}" class="btn btn-danger">Kembali</a>
                             </div>
                         </div>
                     </div>
