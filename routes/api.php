@@ -18,5 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/course', 'ApiCourseContrioller@courseAll')->name('course.all');
-Route::get('/course/{courseId}', 'ApiCourseContrioller@courseDetail')->name('course.all');
+Route::get('/course/', 'ApiCourseController@courseAll')->name('course.all');
+Route::get('/course/student', 'ApiCourseController@studentAll')->name('student.all');
+Route::get('/course/{courseId}', 'ApiCourseController@courseDetail')->name('course.detail');
+Route::get('/course/student/{courseId}', 'ApiCourseController@studentList')->name('course.listdetail');

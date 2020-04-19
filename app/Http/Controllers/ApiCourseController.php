@@ -7,6 +7,7 @@ use App\Ruangan;
 use App\Student;
 use App\Teacher;
 use Illuminate\Http\Request;
+use DB;
 
 class ApiCourseController extends Controller
 {
@@ -23,19 +24,30 @@ class ApiCourseController extends Controller
         return response()->json($ruangans);
     }
 
-    public function courseDetail($id)
+    public function courseDetail($courseId)
     {
         $ruangans = DB::table('ruangans')
         ->join('kelompoks', 'ruangans.kelompok_id', '=', 'kelompoks.id')
-        ->select('ruangans.*', 'kelompoks.nama_kelompok')->where('courseId',$id)->get();
-
-        $students = DB::table('students')->where('courseId',$id)->get();
-        $teachers = DB::table('teachers')->where('courseId',$id)->get();
-        // dd($students);
-        return view ('pages.detail-ruangan', compact('ruangans', 'students','teachers'));    
+        ->select('ruangans.*', 'kelompoks.nama_kelompok')->where('courseId',$courseId)->get();
+        return response()->json($ruangans);  
 
     }
 
+    public function studentAll()
+    {   
+        $students = Student::All()
+        ->groupBy('courseId');
+        return response()->json($students);
+    }
+
+    public function studentList($courseId)
+    {   
+        // echo $courseId;
+        $students = DB::table('students')
+        ->where('courseId', $courseId)->get();
+        return response()->json($students);
+
+    }
 
 
 }
