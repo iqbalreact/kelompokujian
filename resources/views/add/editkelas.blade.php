@@ -32,8 +32,8 @@
 
                 <!-- Basic layout-->
                 @foreach ($rooms as $room)
-                
-                <form action="{{route('kelas.update',$room->id)}}" method="POST">
+                    
+                <form action="{{route('kelas.update', $room->courseId)}}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="panel panel-flat">
@@ -48,11 +48,10 @@
                             </div>
                         </div>
                         <div class="panel-body">
-                            <input type="hidden" name="id" value="{{$room->id }}"> <br/>
-                            <input type="hidden" name="kelompok_id" value="{{$room->kelompok_id }}"> <br/>
+                            <input type="hidden" name="id" value="{{$room->courseId}}"> <br/>
                             <div class="form-group">
                                 <label>Nama Kelas</label>
-                                <input type="text" name="nama_kelas" value="{{$room->nama_kelas}}" class="form-control" placeholder="Nama Kelas">
+                                <input type="text" name="nama_kelas" value="{{$room->courseName}} - ({{$room->nama_kelompok}})" class="form-control" placeholder="Nama Kelas" readonly>
                             </div>
 
                             <div class="form-group">

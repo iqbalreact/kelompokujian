@@ -60,8 +60,11 @@
                                     @foreach ($items as $item)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
-                                            <td>{{$item->nama_kelas}}</td>
-                                            <td><a href="{{$item->kode_kelas}}"><button type="button" class="btn btn-success">Join Kelas</button></a></td>
+                                            <td>{{$item->courseName}}</td>
+                                            <td>
+                                                
+                                                <a href="{{$item->kode_kelas}}"><button type="button" class="btn btn-success">Join Kelas</button></a>
+                                            </td>
                                         </tr>
                                     </tbody>
                                     @endforeach

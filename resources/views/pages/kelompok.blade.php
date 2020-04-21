@@ -61,10 +61,10 @@
 								<td>{{$kelompok->nama_kelompok}}</td>
 								<td>{{$kelompok->pj_kelompok}}</td>
 								<td class="text-center">
-									<a href="{{route('kelompok.edit',$kelompok->id)}}" class="btn btn-info"><i class="icon-pencil"></i></a>
+									<a href="{{route('kelompok.edit',$kelompok->id)}}" class="btn btn-info">Edit</a>
 									<div class="btn-group">
 										<form action="{{route('kelompok.destroy',$kelompok->id)}}" method="POST">
-											<button type="submit" class="btn btn-danger" onclick="alert('Yakin ingi menghapus ?')" title="Hapus"><i class="icon-trash"></i> </button>
+											<button type="submit" class="btn btn-danger" onclick="alert('Yakin ingi menghapus ?')" title="Hapus">Hapus</button>
 											@csrf
 											@method('DELETE')   
 										</form>

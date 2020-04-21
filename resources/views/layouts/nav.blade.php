@@ -49,12 +49,12 @@
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="{{url('/admin/')}}""><i class="icon-display4 position-left"></i> Dashboard</a></li>
 				<li><a href="{{url('/admin/kelompok')}}""><i class="icon-make-group position-left"></i> Kelompok</a></li>
-				{{-- <li><a href="{{url('/admin/kelas')}}""><i class="icon-strategy position-left"></i> Kelas</a></li> --}}
-				<li><a href="{{url('/admin/course')}}""><i class="icon-strategy position-left"></i>Ruangan</a></li>
+				<li><a href="{{url('/admin/course')}}""><i class="icon-office position-left"></i>Ruangan</a></li>
+				<li><a href="{{url('/admin/kelas')}}""><i class="icon-video-camera2 position-left"></i> Kelas</a></li>
 				<li><a href="{{url('/admin/pengumuman')}}""><i class="icon-clipboard3 position-left"></i> Pengumuman</a></li>
 				<li><a href="{{url('/admin/kelas')}}""><i class="icon-list-numbered position-left"></i> Jadwal</a></li>
 			</ul>
-
+{{-- 
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -71,7 +71,7 @@
 						<li><a href="#"><i class="icon-gear"></i> All settings</a></li>
 					</ul>
 				</li>
-			</ul>
+			</ul> --}}
 		</div>
 	</div>
 	<!-- /second navbar -->

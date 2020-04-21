@@ -103,25 +103,25 @@ h6, .h6 {
 }
 
 .btn-primary {
-  background: #f39c12;
+  background: #00a8ff;
   color: #fff;
-  border-color: #f39c12;
+  border-color: #00a8ff;
 }
 
 .btn-primary:active, .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary.active {
-  background: #e67e22 !important;
-  border-color: #e67e22 !important;
+  background: #0097e6 !important;
+  border-color: #0097e6 !important;
 }
 
 .btn-outline-primary {
   background: transparent;
-  color: #f39c12;
-  border-color: #f39c12;
+  color: #00a8ff;
+  border-color: #00a8ff;
 }
 
 .btn-outline-primary:active, .btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary.focus, .btn-outline-primary.active {
-  background: #e67e22 !important;
-  border-color: #e67e22 !important;
+  background: #0097e6 !important;
+  border-color: #0097e6 !important;
   color: #fff;
 }
 
@@ -189,7 +189,7 @@ select:focus {
 }
 
 a:hover {
-  color: #f39c12;
+  color: #00a8ff;
 }
 
 .slick-slide {
@@ -253,11 +253,11 @@ a:hover {
 }
 
 .bg-primary {
-  background: #f39c12 !important;
+  background: #00a8ff !important;
 }
 
 .text-primary {
-  color: #f39c12 !important;
+  color: #00a8ff !important;
 }
 
 .text-light {
@@ -346,7 +346,7 @@ a:hover {
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-  color: #f39c12;
+  color: #00a8ff;
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
@@ -409,7 +409,7 @@ a:hover {
 }
 
 .search-wrapper button i {
-  color: #f39c12;
+  color: #00a8ff;
 }
 
 .card {
@@ -422,7 +422,7 @@ a:hover {
 }
 
 .card-icon {
-  background: #f39c12;
+  background: #00a8ff;
   color: #fff;
   height: 55px;
   width: 60px;
@@ -460,7 +460,7 @@ a:hover {
   line-height: 42px;
   text-align: center;
   color: #fff;
-  background: #f39c12;
+  background: #00a8ff;
   border-radius: 6px;
 }
 
@@ -476,7 +476,7 @@ a:hover {
 }
 
 .footer-menu a:hover {
-  color: #f39c12;
+  color: #00a8ff;
 }
 
 /* sidenav */
@@ -506,7 +506,7 @@ a:hover {
 }
 
 .sidenav .parent > a {
-  color: #f39c12 !important;
+  color: #00a8ff !important;
   position: relative;
   margin-left: 10px;
 }
@@ -518,7 +518,7 @@ a:hover {
   top: 25%;
   height: 50%;
   width: 1px;
-  background: #f39c12;
+  background: #00a8ff;
 }
 
 .sidenav .parent ul {
@@ -571,7 +571,7 @@ a:hover {
 }
 
 .pagination a {
-  color: #f39c12;
+  color: #00a8ff;
   font-size: 18px;
   font-weight: 500;
 }
@@ -606,7 +606,7 @@ a:hover {
 }
 
 .code-tabs .nav-tabs .nav-item.active {
-  background: #f39c12;
+  background: #00a8ff;
 }
 
 .code-tabs .nav-tabs .nav-item.active .nav-link {
@@ -622,7 +622,7 @@ pre {
 }
 
 pre .copy-to-clipboard {
-  background: #f39c12;
+  background: #00a8ff;
   color: #fff;
   cursor: pointer;
   padding: 4px 5px;
@@ -653,7 +653,7 @@ pre .copy-to-clipboard {
 }
 
 .autocomplete-suggestions .autocomplete-suggestion.selected {
-  background: #f39c12;
+  background: #00a8ff;
 }
 
 .search-item a {
@@ -662,7 +662,7 @@ pre .copy-to-clipboard {
 }
 
 .search-item a:hover {
-  color: #f39c12;
+  color: #00a8ff;
 }
 
 .search-item:not(:last-child) {
@@ -705,7 +705,7 @@ pre .copy-to-clipboard {
 
 .form-group .form-control:focus {
   outline: 0;
-  border-color: #f39c12;
+  border-color: #00a8ff;
   box-shadow: none;
 }
 
@@ -791,7 +791,7 @@ pre .copy-to-clipboard {
 
 .content a {
   text-decoration: underline;
-  color: #f39c12;
+  color: #00a8ff;
 }
 
 .content ol,
@@ -820,7 +820,7 @@ pre .copy-to-clipboard {
   height: 8px;
   width: 8px;
   border-radius: 50%;
-  background: #f39c12;
+  background: #00a8ff;
   left: 3px;
   top: 8px;
 }
@@ -938,7 +938,7 @@ pre .copy-to-clipboard {
   font-size: 20px !important;
   color: #222;
   padding: 20px 40px;
-  border-left: 2px solid #f39c12;
+  border-left: 2px solid #00a8ff;
   margin: 40px 0;
   font-weight: bold;
   background: #FBFBFB;

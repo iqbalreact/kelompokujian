@@ -30,8 +30,10 @@ Route::group(['middleware'=> ['auth']], function() {
 
         Route::get('/', 'HomeController@index')->name('admin');
         Route::resource('/kelompok', 'KelompokController');
-        Route::resource('/kelas', 'RoomController');
+        Route::resource('/kelas', 'GmeetController');
         Route::resource('/pengumuman', 'PengumumanController');
+        
+        Route::get('/getToken', 'RuanganController@getToken')->name('token');
         // course route
         Route::get('/course', 'RuanganController@index')->name('course');
         Route::get('/addcourse', 'RuanganController@addCourse')->name('course.addcourse');

@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Gmeet;
 use App\Kelompok;
 use App\Ruangan;
-use Illuminate\Http\Request;
 use DB;
 
-class RoomController extends Controller
+class GmeetController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,15 +18,17 @@ class RoomController extends Controller
     public function index()
     {
         //
+        // $gmeet = Gmeet::all();
+        // dd($gmeet);
         $rooms = DB::table('gmeets')
         ->join('ruangans', 'gmeets.courseId', '=', 'ruangans.courseId')
         ->join('kelompoks', 'ruangans.kelompok_id', '=', 'kelompoks.id')
         ->select('gmeets.*', 'ruangans.*', 'kelompoks.nama_kelompok')
         ->orderBy('nama_kelompok')
         ->get();
-        // dd($rooms);
-        // $rooms = Gmeet::All();
+
         return view ('pages.kelas', compact('rooms'));
+
     }
 
     /**
@@ -54,7 +56,6 @@ class RoomController extends Controller
     public function store(Request $request)
     {
         //
-        // dd($request);
         $room = new Gmeet;
         $room->courseId = $request->courseId;
         $room->kode_kelas = $request->kode;
@@ -83,8 +84,12 @@ class RoomController extends Controller
     public function edit($id)
     {
         //
-        $rooms = DB::table('gmeets')->where('courseId',$id)->get();
+        $rooms = DB::table('gmeets')
+        ->join('ruangans','ruangans.courseId','=','gmeets.courseId')
+        ->join('kelompoks', 'ruangans.kelompok_id', '=', 'kelompoks.id')
+        ->where('gmeets.courseId',$id)->get();
         return view ('add.editkelas', compact('rooms'));
+
     }
 
     /**
@@ -94,11 +99,14 @@ class RoomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
+        //
         DB::table('gmeets')->where('courseId',$request->id)->update([
             'kode_kelas' => $request->kode,
         ]);
+
+        return redirect('/admin/kelas')->with('success', 'Berhasil Menambahkan Ruangan Kelas');
     }
 
     /**
@@ -110,8 +118,8 @@ class RoomController extends Controller
     public function destroy($courseId)
     {
         //
-        $kelas = Gmeet::find($courseId);
+        $kelas = Gmeet::where('courseId', $courseId);
         $kelas->delete();
-        // return redirect('/admin/kelas');
+        return redirect('/admin/kelas')->with('success', 'Berhasil Menambahkan Ruangan Kelas');
     }
 }

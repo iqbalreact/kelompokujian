@@ -28,7 +28,7 @@
         <!-- Dashboard content -->
         @foreach ($ruangans as $item)
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 
 				<!-- Basic datatable -->
 				<div class="panel panel-flat">
@@ -79,12 +79,11 @@
             
             <div class="col-lg-6">
                 <!-- Multiple elements -->
-                <div class="panel panel-default">
+                {{-- <div class="panel panel-default">
                     <div class="panel-heading">
                         <h6 class="panel-title">Pengajar / Dosen Ruangan</h6>
                         <div class="heading-elements">
                             <ul class="icons-list">
-                                {{-- <li><a href="" class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal_title_basic"><i class="icon-googleplus5"></i></a></li> --}}
                                 <li><a href="{{route('course.teacher-course',$item->courseId)}}" title="Add"><i class="icon-googleplus5"></i></a></li>
                             </ul>
                         </div>
@@ -123,10 +122,10 @@
                             </table>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- /striped rows -->
                 <!-- Multiple elements -->
-                <div class="panel panel-default">
+                {{-- <div class="panel panel-default">
                     <div class="panel-heading">
                         <h6 class="panel-title">Mahasiswa / Anggota</h6>
                         <div class="heading-elements">
@@ -170,7 +169,7 @@
                             </table>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- /striped rows -->
             </div>
         </div>

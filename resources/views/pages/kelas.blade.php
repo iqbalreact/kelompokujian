@@ -59,14 +59,15 @@
 							@foreach ($rooms as $room)
 							<tr>
 								<td>{{$loop->iteration}}</td>
-								<td>{{$room->nama_kelas}}</td>
+								{{-- <td>{{$room->id}}</td> --}}
+								<td>{{$room->courseName}}</td>
 								<td>{{$room->nama_kelompok}}</td>
-								<td>{{$room->kode_kelas}}</td>
+								<td><a href="{{$room->kode_kelas}}"><button type="button" class="btn btn-success">Join Kelas</button></a></td>
 								<td class="text-center">
+									<a href="{{route('kelas.edit',$room->courseId)}}" class="btn btn-info">Edit</a>
 									<div class="btn-group">
-										<a href="{{route('kelas.edit',$room->id)}}" class="btn btn-info"><i class="icon-pencil"></i></a>
-										<form action="{{route('kelas.destroy',$room->id)}}" method="POST">
-											<button type="submit" class="btn btn-danger" onclick="alert('Yakin ingi menghapus ?')" title="Hapus"><i class="icon-trash"></i> </button>
+										<form action="{{route('kelas.destroy',$room->courseId)}}" method="POST">
+											<button type="submit" class="btn btn-danger" onclick="alert('Yakin ingi menghapus ?')" title="Hapus">Hapus</button>
 											@csrf
 											@method('DELETE')   
 										</form>

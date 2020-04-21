@@ -47,18 +47,13 @@
 
                         <div class="panel-body">
                             <div class="form-group">
-                                <label>Pilih Kelompok</label>
-                                <select name="kelompok_id" class="form-control">
+                                <label>Pilih Ruangan</label>
+                                <select name="courseId" class="form-control">
                                     <option value="">Pilih</option>
-                                    @foreach ($kelompoks as $kelompok) 
-                                    <option value="{{$kelompok->id}}">{{$kelompok->nama_kelompok}}</option>
+                                    @foreach ($ruangans as $ruangans) 
+                                    <option value="{{$ruangans->courseId}}">{{$ruangans->courseName}} ({{$ruangans->nama_kelompok}})</option>
                                     @endforeach
                                 </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Nama Kelas</label>
-                                <input type="text" name="nama_kelas" class="form-control" placeholder="Nama Kelas">
                             </div>
 
                             <div class="form-group">

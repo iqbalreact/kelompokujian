@@ -53,7 +53,7 @@
 								<th>Kelompok</th>
 								<th>Kode Ruangan</th>
 								<th>Status Ruangan</th>
-								<th>Link Ruangan</th>
+								{{-- <th>Link Ruangan</th> --}}
 								<th class="text-center">Actions</th>
 							</tr>
 						</thead>
@@ -72,7 +72,7 @@
 									@else
 									<span class="label label-danger heading-text">{{$ruangans->courseState}}</span> 
 									@endif
-								<td><a href="{{$ruangans->courseLink}}">{{$ruangans->courseLink}}</a></td>
+								{{-- <td><a href="{{$ruangans->courseLink}}">{{$ruangans->courseLink}}</a></td> --}}
 								<td class="text-center">
 									{{-- <button type="button" class="btn btn-default btn-sm" data-toggle="modal" href="#detailCourse" onclick="getDetailCourse({{$ruangans->courseId}})">Detail</button> --}}
 									<a href="{{route('course.detail-course',$ruangans->courseId)}}" class="btn btn-default">Detail</a>

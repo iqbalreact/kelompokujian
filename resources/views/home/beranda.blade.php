@@ -30,11 +30,7 @@
 
                 <!-- Quick stats boxes -->
                 <div class="row">
-
                     @foreach ($result as $items)
-{{--                     
-                    {{dd($items)}} --}}
-
                     <div class="col-lg-4">
                         <!-- Basic datatable -->
                         <div class="panel panel-flat">
@@ -67,12 +63,9 @@
                                     @endforeach
                                 </table>
                             </div>
-                            
                         </div>
                             <!-- /basic datatable -->
                     @endforeach
-
-
                 </div>
                 <!-- /quick stats boxes -->
             </div>

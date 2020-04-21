@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Kelompok;
+use App\Gmeet;
 use App\Kelas;
 use Illuminate\Http\Request;
 use DB;
@@ -27,13 +28,13 @@ class HomeController extends Controller
     public function index()
     {   
         
-        $kelompoks = Kelompok::All();
-
-        $rooms = DB::table('rooms')
-        ->join('kelompoks', 'rooms.kelompok_id', '=', 'kelompoks.id')
-        ->select('rooms.*', 'kelompoks.nama_kelompok')
-        // ->groupBy('kelompoks.nama_kelompok')
+        $rooms = DB::table('gmeets')
+        ->join('ruangans', 'gmeets.courseId', '=', 'ruangans.courseId')
+        ->join('kelompoks', 'ruangans.kelompok_id', '=', 'kelompoks.id')
+        ->select('gmeets.*', 'ruangans.*', 'kelompoks.nama_kelompok')
+        ->orderBy('nama_kelompok')
         ->get();
+
 
         $result = array();
         foreach($rooms as $d){
@@ -44,6 +45,6 @@ class HomeController extends Controller
         }
         // dd($result);
         
-        return view ('pages.dashboard', compact('kelompoks','result'));
+        return view ('pages.dashboard', compact('result'));
     }
 }

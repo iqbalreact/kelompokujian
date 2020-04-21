@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-md-12">
                 <!-- Basic layout-->
-                <form action="{{route('course.addteacher-course')}}" method="POST">
+                <form action="{{route('course.addteacher-course')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="panel panel-flat">
                         <div class="panel-heading">

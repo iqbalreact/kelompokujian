@@ -51,7 +51,7 @@
 								<th>No</th>
 								<th>Kategori Pengumuman</th>
 								<th>Judul Pengumuman</th>
-								<th>Isi Pengumuman</th>
+								<th style="width : 60%">Isi Pengumuman</th>
 								<th class="text-center">Actions</th>
 							</tr>
 						</thead>
@@ -68,12 +68,13 @@
 									
 								</td>
 								<td>{{$pengumuman->judul_pengumuman}}</td>
-								<td>{!! $pengumuman->isi_pengumuman !!}</td>
+								<td>
+									{!! $pengumuman->isi_pengumuman !!}</td>
 								<td class="text-center">
-									<a href="{{route('pengumuman.edit',$pengumuman->id)}}" class="btn btn-info"><i class="icon-pencil"></i></a>
+									<a href="{{route('pengumuman.edit',$pengumuman->id)}}" class="btn btn-info">Edit</a>
 									<div class="btn-group">
 										<form action="{{route('pengumuman.destroy',$pengumuman->id)}}" method="POST">
-											<button type="submit" class="btn btn-danger" onclick="alert('Yakin ingi menghapus ?')" title="Hapus"><i class="icon-trash"></i> </button>
+											<button type="submit" class="btn btn-danger" onclick="alert('Yakin ingi menghapus ?')" title="Hapus">Hapus</button>
 											@csrf
 											@method('DELETE')   
 										</form>
